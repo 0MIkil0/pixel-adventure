@@ -1,0 +1,38 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE and editor files
+.idea/
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Rider / Visual Studio settings
+*.DotSettings.user
+
+# macOS and removable-drive metadata
+.DS_Store
+._*
+
+# Crash logs
+mono_crash.*

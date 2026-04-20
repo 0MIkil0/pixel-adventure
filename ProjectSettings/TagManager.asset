@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - dethTag
+  - Bullet
+  - enemy
+  - Box
+  - BulletEnemy
+  - Enemy
+  - Apple
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Confiner
+  - Wall
+  - Box
+  - Player
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 3688959109
+    locked: 0
+  - name: Floor 2
+    uniqueID: 1636956793
+    locked: 0
+  - name: Effects
+    uniqueID: 2931851799
+    locked: 0
+  m_RenderingLayers:
+  - Default
