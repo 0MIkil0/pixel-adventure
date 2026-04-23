@@ -14,11 +14,15 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
         public float currentHealth = 100f;
         public HealthBar fullHelthBar;
         private Animator _animator;
+        private Collider2D _collider;
+        private Rigidbody2D _rb;
 
         void Start()
         {
             _animator = GetComponent<Animator>();
             _animator.SetBool(IsGetHit, false);
+            _collider = GetComponent<Collider2D>();
+            _rb = GetComponent<Rigidbody2D>();
         }
         public void TakeDamage(float damage)
         {
@@ -40,13 +44,18 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             fullHelthBar.UpdateHealthOnBar(currentHealth / maxHealth);
         }
 
-        void Die()
+        public void Die()
         {
-           GetComponent<PlayerMovement2D>().enabled = false;
             _animator.SetBool(IsGetHit, false);
             _animator.SetBool(IsDeath, true);
+            _collider.enabled = false;
+            
+            _rb.linearVelocity = Vector2.zero;
+            _rb.gravityScale = 0f;
+            _rb.bodyType = RigidbodyType2D.Kinematic;
 
             StartCoroutine(Restart());
+            GetComponent<PlayerMovement2D>().enabled = false;
         }
 
         private IEnumerator Restart()
@@ -86,8 +95,10 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             playerMovement.enabled = false;
             GetComponent<Rigidbody2D>().AddForce(shotDirection *3f, ForceMode2D.Impulse);
             yield return new WaitForSeconds(0.5f);
-            playerMovement.enabled = true;
-            
+            if (currentHealth > 0)
+            {
+                playerMovement.enabled = true;
+            }
         }
     }
     }

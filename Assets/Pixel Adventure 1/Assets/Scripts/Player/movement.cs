@@ -30,10 +30,8 @@ namespace Pixel_Adventure_1.Assets.Scripts
                 float x = PlayerPrefs.GetFloat("SaveX");
                 float y = PlayerPrefs.GetFloat("SaveY");
                 float z = PlayerPrefs.GetFloat("SaveZ");
-        
+                
                 transform.position = new Vector3(x, y, z);
-        
-                Debug.Log("Загружена позиция: " + transform.position);
             }
             _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();   

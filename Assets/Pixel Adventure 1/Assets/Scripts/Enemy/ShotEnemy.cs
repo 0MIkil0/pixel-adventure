@@ -50,7 +50,7 @@ public class ShotEnemy : MonoBehaviour
         GameObject enemyBullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
         _rb = enemyBullet.GetComponent<Rigidbody2D>();
         _rb.AddForce(x * bulletSpeed, ForceMode2D.Impulse);
-
+        
         yield return new WaitForSeconds(1.8f);
         _canShoot = true;
      
