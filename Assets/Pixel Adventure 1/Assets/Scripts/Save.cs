@@ -2,34 +2,43 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Save : MonoBehaviour
+namespace Pixel_Adventure_1.Assets.Scripts.Player
 {
-    //добавил коллизию при входе в зону второго уровня
-    public GameObject leftCollision;
-    public GameObject rightCollision;
-    private BoxCollider2D _rightCollider;
-    private BoxCollider2D _leftCollider;
-    public Transform respawnPoint;
-
-
-    private void Start()
+    public class Save : MonoBehaviour
     {
-        _rightCollider = rightCollision.GetComponent<BoxCollider2D>();
-        _leftCollider = leftCollision.GetComponent<BoxCollider2D>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //ЗАГРУЗКА СЕйВА В Movement
-        if (collision.gameObject.CompareTag("Player"))
+        //добавил коллизию при входе в зону второго уровня
+        public GameObject leftCollision;
+        public GameObject rightCollision;
+        private BoxCollider2D _rightCollider;
+        private BoxCollider2D _leftCollider;
+        public Transform respawnPoint;
+        
+        private void Start()
         {
-            PlayerPrefs.SetFloat("SaveX", respawnPoint.position.x);
-            PlayerPrefs.SetFloat("SaveY", respawnPoint.position.y);
-            PlayerPrefs.SetFloat("SaveZ", respawnPoint.position.z);
-            PlayerPrefs.Save();
+            _rightCollider = rightCollision.GetComponent<BoxCollider2D>();
+            _leftCollider = leftCollision.GetComponent<BoxCollider2D>();
+        }
 
-            _leftCollider.enabled = true;
-            _rightCollider.enabled = true;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            //ЗАГРУЗКА СЕйВА В Movement
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                //координаты
+                PlayerPrefs.SetFloat("SaveX", respawnPoint.position.x);
+                PlayerPrefs.SetFloat("SaveY", respawnPoint.position.y);
+                PlayerPrefs.SetFloat("SaveZ", respawnPoint.position.z);
+
+                //очки
+                int playerScore = FindFirstObjectByType<Score>().playerScore;
+                PlayerPrefs.SetInt("playerScore", playerScore);
+                
+                //сейв
+                PlayerPrefs.Save();
+
+                _leftCollider.enabled = true;
+                _rightCollider.enabled = true;
+            }
         }
     }
 }

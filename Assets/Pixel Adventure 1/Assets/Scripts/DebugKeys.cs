@@ -15,12 +15,13 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
                 PlayerPrefs.SetFloat("SaveX", 4.01f);
                 PlayerPrefs.SetFloat("SaveY", 0.679f);
                 PlayerPrefs.SetFloat("SaveZ", 0f);
-                
-                PlayerPrefs.Save();
                 Debug.Log("Чекпоинт сохранён на G");
                 
-               // PlayerHealth Health = GetComponent<PlayerHealth>();
-               // Health.Die();
+                PlayerPrefs.SetInt("playerScore", 0);
+                Debug.Log("счетчик = 0");
+                
+                PlayerPrefs.Save();
+
             }
             if (Input.GetKeyDown(KeyCode.J))
             {
