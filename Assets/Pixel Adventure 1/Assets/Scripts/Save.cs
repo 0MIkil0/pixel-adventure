@@ -24,6 +24,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             //ЗАГРУЗКА СЕйВА В Movement
             if (collision.gameObject.CompareTag("Player"))
             {
+                Debug.Log("Player entered");
                 //координаты
                 PlayerPrefs.SetFloat("SaveX", respawnPoint.position.x);
                 PlayerPrefs.SetFloat("SaveY", respawnPoint.position.y);
@@ -36,6 +37,9 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
                 //сейв
                 PlayerPrefs.Save();
 
+                //загрузка цели на второй уровень 
+                FindFirstObjectByType<LevelTarget1>().isSecondFloor = true;
+                
                 _leftCollider.enabled = true;
                 _rightCollider.enabled = true;
             }

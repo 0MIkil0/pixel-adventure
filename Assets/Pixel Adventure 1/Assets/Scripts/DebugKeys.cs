@@ -1,5 +1,6 @@
 //это для того чтобы можно было выбраться со второго уровня когда коллизии загораживают выход
 
+using Pixel_Adventure_1.Assets.Scripts.Enemy;
 using UnityEngine;
 
 namespace Pixel_Adventure_1.Assets.Scripts.Player
@@ -26,6 +27,11 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             if (Input.GetKeyDown(KeyCode.J))
             {
                 GetComponent<PlayerHealth>().Die();
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                FindFirstObjectByType<EnemyHeal>().Die();
             }
         }
     }

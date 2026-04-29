@@ -7,6 +7,7 @@ public class LoadSave : MonoBehaviour
         //СОХРАНЕНИЕ
         if (PlayerPrefs.HasKey("SaveX"))
         {
+            Debug.Log("otrabotalo");
             float x = PlayerPrefs.GetFloat("SaveX");
             float y = PlayerPrefs.GetFloat("SaveY");
             float z = PlayerPrefs.GetFloat("SaveZ");

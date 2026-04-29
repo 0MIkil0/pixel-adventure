@@ -58,7 +58,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             yield return null;
         }
 
-        private void Die()
+        public void Die()
         {
             StopAllCoroutines();
             _enemyAi.CancelInvoke();
@@ -81,6 +81,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             _animator.SetBool(IsMoving, false);
 
             FindFirstObjectByType<Score>().AddScore();
+            FindFirstObjectByType<LevelTarget1>().AddScore();
             
             Destroy(gameObject, 3f);
         }
