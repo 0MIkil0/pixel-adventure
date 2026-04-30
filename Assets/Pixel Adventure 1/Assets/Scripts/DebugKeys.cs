@@ -21,7 +21,14 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
                 PlayerPrefs.SetInt("playerScore", 0);
                 Debug.Log("счетчик = 0");
                 
+                //ключи уровней
+                PlayerPrefs.SetInt("FST_TARGET", 0);
+                PlayerPrefs.SetInt("FST_CURRENT_SCORE", 0);
+                PlayerPrefs.SetInt("IS_SECOND", 0);
+                
                 PlayerPrefs.Save();
+                
+                
 
             }
             if (Input.GetKeyDown(KeyCode.J))

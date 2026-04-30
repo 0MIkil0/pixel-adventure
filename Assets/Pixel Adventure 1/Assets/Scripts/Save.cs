@@ -38,7 +38,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
                 PlayerPrefs.Save();
 
                 //загрузка цели на второй уровень 
-                FindFirstObjectByType<LevelTarget1>().isSecondFloor = true;
+                FindFirstObjectByType<SecondLevel>().ChangeSecondLevel();
                 
                 _leftCollider.enabled = true;
                 _rightCollider.enabled = true;
