@@ -23,9 +23,12 @@ namespace Pixel_Adventure_1.Assets.Scripts
             _leftCollider = leftCollision.GetComponent<BoxCollider2D>();
             _text = GetComponent<TMP_Text>();
             _firstCurrentScore = PlayerPrefs.GetInt("FST_CURRENT_SCORE");
+            Invoke(nameof(ColliderTrue), 0.2f);
+          
         }
         void Update()
         {
+            
             if (_firstCurrentScore < _firstLevelTarget)
             {
                 _text.text = $"Осталось победить {_firstLevelTarget - _firstCurrentScore} врага для открытия следующего уровня.";
@@ -44,9 +47,14 @@ namespace Pixel_Adventure_1.Assets.Scripts
                 firstTarget = 1;
                 
                 PlayerPrefs.SetInt("FST_CURRENT_SCORE", _firstCurrentScore);
-                GetComponent<SecondLevel>().GetFstTarget();
-
+                GetComponent<SecondLevel>().SaveFirstTarget();
             }
+        }
+
+        void ColliderTrue()
+        {
+            _rightCollider.enabled = true;
+            _leftCollider.enabled = true;
         }
         
         public void AddScore()

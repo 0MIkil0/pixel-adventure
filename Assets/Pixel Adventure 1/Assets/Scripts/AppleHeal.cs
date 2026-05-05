@@ -6,7 +6,7 @@ namespace Pixel_Adventure_1.Assets.Scripts
 {
     public class AppleHeal : MonoBehaviour
     {
-        
+        public event Action OnCollected;  
         private float _appleHeal = 20f;
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -15,6 +15,7 @@ namespace Pixel_Adventure_1.Assets.Scripts
             {
                playerHealth.Heal(_appleHeal);
                Destroy(gameObject);
+               OnCollected?.Invoke();
             }
         }
     }

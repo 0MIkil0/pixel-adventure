@@ -24,7 +24,6 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             //ЗАГРУЗКА СЕйВА В Movement
             if (collision.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Player entered");
                 //координаты
                 PlayerPrefs.SetFloat("SaveX", respawnPoint.position.x);
                 PlayerPrefs.SetFloat("SaveY", respawnPoint.position.y);
