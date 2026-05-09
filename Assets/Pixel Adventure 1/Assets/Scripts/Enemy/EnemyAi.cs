@@ -6,7 +6,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
     public class EnemyAi : MonoBehaviour
     {
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
-        private Rigidbody2D _rigidbody;
+        private Rigidbody2D _rb;
         private Vector2 _movement = new Vector2(1, 0);
         private Animator _animator;
         private Transform _transform;
@@ -24,8 +24,8 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
         {
             _transform = GetComponent<Transform>();
             _animator = GetComponent<Animator>();
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _rigidbody.gravityScale = normalGraviti;
+            _rb = GetComponent<Rigidbody2D>();
+            _rb.gravityScale = normalGraviti;
         }
 
         void FixedUpdate()
@@ -94,7 +94,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
         
         void Jump()
         {
-            _rigidbody.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
             _isJumping = true;
             Invoke(nameof(isJumpingFalse), 1f);
         }
@@ -119,21 +119,21 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
         void isDashingFalse()
         {
             _isDashing = false;
-            _rigidbody.gravityScale = normalGraviti;
+            _rb.gravityScale = normalGraviti;
         }
 
         void Dash(int x)
         {
             _isDashing = true;
-            _rigidbody.gravityScale = 0;
-            _rigidbody.AddForce(new Vector2(x, 0) * 2f, ForceMode2D.Impulse);
+            _rb.gravityScale = 0;
+            _rb.AddForce(new Vector2(x, 0) * 2f, ForceMode2D.Impulse);
             Invoke(nameof(isDashingFalse), 0.25f);
         }
 
         void Run()
         {
             _animator.SetBool(IsMoving, true);
-            _rigidbody.linearVelocity = new Vector2(_movementSpeed * _movement.x, _rigidbody.linearVelocity.y);
+            _rb.linearVelocity = new Vector2(_movementSpeed * _movement.x, _rb.linearVelocity.y);
         }
 
         void Rotate()

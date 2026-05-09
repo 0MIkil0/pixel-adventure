@@ -1,34 +1,35 @@
 using System.Collections;
 using Pixel_Adventure_1.Assets.Scripts.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Pixel_Adventure_1.Assets.Scripts.Enemy
 {
-    public class EnemyHeal : MonoBehaviour
+    public class EnemyHealth : MonoBehaviour
     {
         private static readonly int IsDie = Animator.StringToHash("isDie");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
         private float _health = 100f;
         public Bullet bullet;
-        public Shot shot;
+        [FormerlySerializedAs("shot")] public PlayerShot playerShot;
         private Animator _animator;
-        private Rigidbody2D _rigidbody;
+        private Rigidbody2D _rb;
         private EnemyAi _enemyAi;
-        private ShotEnemy _shotEnemy;
-        private bool isDead = false;
+        private EnemyShoot _enemyShoot;
+        private bool _isDead = false;
 
         void Start()
         {
             _enemyAi = GetComponent<EnemyAi>();
-            _shotEnemy = GetComponent<ShotEnemy>();
-            _rigidbody =  GetComponent<Rigidbody2D>();
+            _enemyShoot = GetComponent<EnemyShoot>();
+            _rb =  GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
             _animator.SetBool(IsDie, false);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (isDead)
+            if (_isDead)
             {
                 return;
             }
@@ -42,7 +43,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
 
         private IEnumerator TakeDamage(float damage)
         {
-            if (isDead)
+            if (_isDead)
             {
                 yield break;
             }
@@ -51,7 +52,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
 
             if (_health <= 0)
             {
-                isDead = true;
+                _isDead = true;
                 Die();
                 yield break;
             }
@@ -64,38 +65,38 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             _enemyAi.CancelInvoke();
             _enemyAi.enabled = false;
             
-            if (_shotEnemy != null)
+            if (_enemyShoot != null)
             {
-                _shotEnemy.enabled = false;
+                _enemyShoot.enabled = false;
             }
 
-            Vector2 deathVelocity = _rigidbody.linearVelocity;
+            Vector2 deathVelocity = _rb.linearVelocity;
             deathVelocity.y = 0f;
-            _rigidbody.linearVelocity = deathVelocity * 0.95f;
-            _rigidbody.gravityScale = 0f;
-            _rigidbody.angularVelocity = 0f;
-            _rigidbody.freezeRotation = true;
-            _rigidbody.linearDamping = 8f;
+            _rb.linearVelocity = deathVelocity * 0.95f;
+            _rb.gravityScale = 0f;
+            _rb.angularVelocity = 0f;
+            _rb.freezeRotation = true;
+            _rb.linearDamping = 8f;
 
             _animator.SetBool(IsDie, true);
             _animator.SetBool(IsMoving, false);
 
-            FindFirstObjectByType<Score>().AddScore();
-            FindFirstObjectByType<LevelTarget1>().AddScore();
+            FindFirstObjectByType<ScoreManager>().AddScore();
+            FindFirstObjectByType<ScoreCounter>().AddScore();
             
             Destroy(gameObject, 3f);
         }
         private IEnumerator ForceBullet()
         {
-                if (isDead)
+                if (_isDead)
                 {
                     yield break;
                 }
 
                 _enemyAi.enabled = false;
-                _rigidbody.AddForce(shot.shootDirection * 1f, ForceMode2D.Impulse);
+                _rb.AddForce(playerShot.shootDirection * 1f, ForceMode2D.Impulse);
                 yield return new WaitForSeconds(0.15f);
-                if (!isDead)
+                if (!_isDead)
                 {
                     _enemyAi.enabled = true;
                 }

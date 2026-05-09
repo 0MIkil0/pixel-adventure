@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace Pixel_Adventure_1.Assets.Scripts.Player
 {
    
-    public class Shot : MonoBehaviour
+    public class PlayerShot : MonoBehaviour
     {
         private Rigidbody2D _rb;
         public GameObject bulletPrefab;
