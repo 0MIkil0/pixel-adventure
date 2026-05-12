@@ -4,30 +4,30 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
 {
     public class EnemyBullet : MonoBehaviour
     {
-        public float enemyBulletDamage = 15f;
+        public float EnemyBulletDamage = 15f;
+        public Vector2 DirectionBullet;
         private Rigidbody2D _rb;
-        public Vector2 directionBullet;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag($"Enemy") && !other.CompareTag($"Apple")) 
+            if (other.CompareTag($"Enemy") || other.CompareTag($"Apple")) return;
+            var currentVelocity = _rb.linearVelocity;
+            switch (currentVelocity.x)
             {
-                Vector2 currentVelocity = _rb.linearVelocity;
-                if (currentVelocity.x < 0)
-                {
-                    directionBullet = Vector2.left;
-                }
-                else if (currentVelocity.x > 0)
-                {
-                    directionBullet = Vector2.right;
-                }
-                Destroy(this.gameObject);
+                case < 0:
+                    DirectionBullet = Vector2.left;
+                    break;
+                case > 0:
+                    DirectionBullet = Vector2.right;
+                    break;
             }
+
+            Destroy(this.gameObject);
         }
     }
 }

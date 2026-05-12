@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using Pixel_Adventure_1.Assets.Scripts.Levels.Level2;
+using Pixel_Adventure_1.Assets.Scripts.Saves;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,31 +8,31 @@ namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level2
     public class Level2Transition : MonoBehaviour
     {
         private int _timer = 10;
-        private UISecondLevel _ui;
+        private Level2UI _level2UI;
         private void Start()
         {
-            _ui = GetComponent<UISecondLevel>();
-
+            _level2UI = GetComponent<Level2UI>();
         }
 
-        public void StartTimerCorutine()
+        public void StartTimerCoroutine()
         {
-            StartCoroutine(nameof(TimerCorutine));
+            StartCoroutine(nameof(TimerCoroutine));
         }
-       IEnumerator TimerCorutine()
+
+        private IEnumerator TimerCoroutine()
         {
             GetComponent<Level2Goal>().enabled = false;
             while (_timer > 0)
             {
                 _timer = _timer - 1;
                 string message = $"Вас телепортирует через: {_timer}";
-                _ui.UpdateText(message, Color.azure, 18);
+                _level2UI.UpdateText(message, Color.azure, 18);
 
                 if (_timer == 0)
                 {
-                    PlayerPrefs.SetFloat(SaveKeys.SaveX, 4.01f);
-                    PlayerPrefs.SetFloat(SaveKeys.SaveY, 0.679f);
-                    PlayerPrefs.SetFloat(SaveKeys.SaveZ, 0f);
+                    PlayerPrefs.SetFloat(CheckpointSaveKeys.SaveX, 4.01f);
+                    PlayerPrefs.SetFloat(CheckpointSaveKeys.SaveY, 0.679f);
+                    PlayerPrefs.SetFloat(CheckpointSaveKeys.SaveZ, 0f);
                     SceneManager.LoadScene("Level2");
                 }
 

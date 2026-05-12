@@ -5,27 +5,27 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
 {
     public class EnemyAi : MonoBehaviour
     {
-        private static readonly int IsMoving = Animator.StringToHash("isMoving");
+        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private LayerMask _wallLayer;
+        [SerializeField] private LayerMask _enemyLayer;
+        [SerializeField] private Transform _groundCheckPoint;
         private Rigidbody2D _rb;
         private Vector2 _movement = new Vector2(1, 0);
         private Animator _animator;
         private Transform _transform;
-        private float _movementSpeed = 1f;
+        private static readonly int IsMoving = Animator.StringToHash("isMoving");
+        private const float NormalGravity = 1;
+        private const float MovementSpeed = 1f;
         private bool _isRight = true;
         private bool _isJumping = false;
         private bool _isDashing = false;
-        private float normalGraviti = 1;
-        [SerializeField] private LayerMask groundLayer;
-        [SerializeField] private LayerMask wallLayer;
-        [SerializeField] private LayerMask enemyLayer;
-        [SerializeField] private Transform groundCheckPoint;
 
         void Start()
         {
             _transform = GetComponent<Transform>();
             _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
-            _rb.gravityScale = normalGraviti;
+            _rb.gravityScale = NormalGravity;
         }
 
         void FixedUpdate()
@@ -45,14 +45,13 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
                 RaycastDown(-0.1f, 0.3f);
                 RaycastWall(Vector2.left, 0.1f);
             }
-
         }
 
         void RaycastDown(float distanceRay, float rayLength)
         {
-            Vector2 rayDownOrigin = new Vector2(groundCheckPoint.position.x + distanceRay, groundCheckPoint.position.y);
-            RaycastHit2D hitDown = Physics2D.Raycast(rayDownOrigin, Vector2.down, rayLength, groundLayer);
-
+            Vector2 rayDownOrigin =
+                new Vector2(_groundCheckPoint.position.x + distanceRay, _groundCheckPoint.position.y);
+            RaycastHit2D hitDown = Physics2D.Raycast(rayDownOrigin, Vector2.down, rayLength, _groundLayer);
             if (hitDown.collider == null && _isJumping == false)
             {
                 Rotate();
@@ -61,12 +60,12 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
 
         void RaycastWall(Vector2 direction, float rayLength)
         {
-            Vector2 rayWallOrigin = new Vector2(groundCheckPoint.position.x, groundCheckPoint.position.y);
-            Vector2 rayEnemyOrigin = new Vector2(groundCheckPoint.position.x + 0.1f, groundCheckPoint.position.y);
-            RaycastHit2D hitWall = Physics2D.Raycast(rayWallOrigin, direction, rayLength, wallLayer);
-            RaycastHit2D hitBox = Physics2D.Raycast(rayWallOrigin, direction , 0.4f, groundLayer);
-            RaycastHit2D hitEnemy = Physics2D.Raycast(rayEnemyOrigin, direction, 0.04f ,enemyLayer);
-            
+            Vector2 rayWallOrigin = new Vector2(_groundCheckPoint.position.x, _groundCheckPoint.position.y);
+            Vector2 rayEnemyOrigin = new Vector2(_groundCheckPoint.position.x + 0.1f, _groundCheckPoint.position.y);
+            RaycastHit2D hitWall = Physics2D.Raycast(rayWallOrigin, direction, rayLength, _wallLayer);
+            RaycastHit2D hitBox = Physics2D.Raycast(rayWallOrigin, direction, 0.4f, _groundLayer);
+            RaycastHit2D hitEnemy = Physics2D.Raycast(rayEnemyOrigin, direction, 0.04f, _enemyLayer);
+
             if (hitWall.collider != null && _isJumping == false)
             {
                 Rotate();
@@ -76,11 +75,10 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
                 Jump();
                 Invoke(nameof(DashCallInvoke), 0.29f);
             }
-            
-            else if(hitEnemy.collider != null && _isJumping == false)
+            else if (hitEnemy.collider != null && _isJumping == false)
             {
                 int randNum = RandomNumberGenerator.GetInt32(4);
-                if (randNum == 1 || randNum== 2)
+                if (randNum == 1 || randNum == 2)
                 {
                     Rotate();
                 }
@@ -91,12 +89,12 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
                 }
             }
         }
-        
+
         void Jump()
         {
             _rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
             _isJumping = true;
-            Invoke(nameof(isJumpingFalse), 1f);
+            Invoke(nameof(IsJumpingFalse), 1f);
         }
 
         void DashCallInvoke()
@@ -111,32 +109,32 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             }
         }
 
-        void isJumpingFalse()
+        private void IsJumpingFalse()
         {
             _isJumping = false;
         }
 
-        void isDashingFalse()
+        private void IsDashingFalse()
         {
             _isDashing = false;
-            _rb.gravityScale = normalGraviti;
+            _rb.gravityScale = NormalGravity;
         }
 
-        void Dash(int x)
+        private void Dash(int x)
         {
             _isDashing = true;
             _rb.gravityScale = 0;
             _rb.AddForce(new Vector2(x, 0) * 2f, ForceMode2D.Impulse);
-            Invoke(nameof(isDashingFalse), 0.25f);
+            Invoke(nameof(IsDashingFalse), 0.25f);
         }
 
-        void Run()
+        private void Run()
         {
             _animator.SetBool(IsMoving, true);
-            _rb.linearVelocity = new Vector2(_movementSpeed * _movement.x, _rb.linearVelocity.y);
+            _rb.linearVelocity = new Vector2(MovementSpeed * _movement.x, _rb.linearVelocity.y);
         }
 
-        void Rotate()
+        private void Rotate()
         {
             _isRight = !_isRight;
             _movement.x *= -1;

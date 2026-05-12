@@ -1,0 +1,24 @@
+root = true
+
+[*.cs]
+# Allow public Unity-exposed fields to use UpperCamelCase/PascalCase,
+# while keeping Rider's naming inspection enabled for other symbols.
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+dotnet_naming_symbols.public_fields.applicable_kinds = field
+dotnet_naming_symbols.public_fields.applicable_accessibilities = public
+dotnet_naming_symbols.public_fields.required_modifiers =
+
+dotnet_naming_rule.public_fields_should_be_pascal.symbols = public_fields
+dotnet_naming_rule.public_fields_should_be_pascal.style = pascal_case
+dotnet_naming_rule.public_fields_should_be_pascal.severity = warning
+
+resharper_csharp_naming_rule.public_fields = AaBb
+
+dotnet_naming_symbols.public_unity_serialized_fields.applicable_accessibilities = public
+dotnet_naming_symbols.public_unity_serialized_fields.resharper_applicable_kinds = unity_serialised_field
+
+dotnet_naming_rule.public_unity_serialized_fields_should_be_pascal.symbols = public_unity_serialized_fields
+dotnet_naming_rule.public_unity_serialized_fields_should_be_pascal.style = pascal_case
+dotnet_naming_rule.public_unity_serialized_fields_should_be_pascal.severity = warning
+dotnet_naming_rule.public_unity_serialized_fields_should_be_pascal.resharper_style = AaBb

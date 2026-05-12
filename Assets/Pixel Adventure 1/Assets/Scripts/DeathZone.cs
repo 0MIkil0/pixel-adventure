@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace Pixel_Adventure_1.Assets.Scripts
 {
-    public class DethZone : MonoBehaviour
+    public class DeathZone : MonoBehaviour
     {
-        
         private void OnTriggerStay2D(Collider2D other)
         {
             if (other.CompareTag("Player"))

@@ -1,9 +1,6 @@
-using System;
-using Pixel_Adventure_1.Assets.Scripts.Levels.Level2;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace Pixel_Adventure_1.Assets.Scripts.Player
+namespace Pixel_Adventure_1.Assets.Scripts.Saves
 {
     public class CheckpointSave : MonoBehaviour
     {
@@ -14,9 +11,9 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             if (collision.gameObject.CompareTag("Player"))
             {
                 //координаты
-                PlayerPrefs.SetFloat(SaveKeys.SaveX, respawnPoint.position.x);
-                PlayerPrefs.SetFloat(SaveKeys.SaveY, respawnPoint.position.y);
-                PlayerPrefs.SetFloat(SaveKeys.SaveZ, respawnPoint.position.z);
+                PlayerPrefs.SetFloat(CheckpointSaveKeys.SaveX, respawnPoint.position.x);
+                PlayerPrefs.SetFloat(CheckpointSaveKeys.SaveY, respawnPoint.position.y);
+                PlayerPrefs.SetFloat(CheckpointSaveKeys.SaveZ, respawnPoint.position.z);
                 //сейв
                 PlayerPrefs.Save();
             }

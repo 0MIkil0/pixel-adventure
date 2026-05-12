@@ -1,34 +1,38 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class FailingPlatform : MonoBehaviour
+namespace Pixel_Adventure_1.Assets.Scripts
 {
-    private static readonly int IsFailing = Animator.StringToHash("isFailing");
-    private Animator _animator;
-    private BoxCollider2D _boxCollider2D;
-    void Start()
+    public class FailingPlatform : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
-        _animator.SetBool(IsFailing, false);
-    }
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(platformOff());
-        }
-    }
+        private static readonly int IsFailing = Animator.StringToHash("isFailing");
+        private Animator _animator;
+        private BoxCollider2D _boxCollider2D;
 
-    IEnumerator platformOff()
-    {
-        yield return new WaitForSeconds(2f);
-        _animator.SetBool(IsFailing, true);
-        _boxCollider2D.enabled = false;
-        yield return new WaitForSeconds(5f);
-        _animator.SetBool(IsFailing, false);
-        _boxCollider2D.enabled = true;
+        void Start()
+        {
+            _animator = GetComponent<Animator>();
+            _boxCollider2D = GetComponent<BoxCollider2D>();
+            _animator.SetBool(IsFailing, false);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                StartCoroutine(PlatformOff());
+            }
+        }
+
+        private IEnumerator PlatformOff()
+        {
+            yield return new WaitForSeconds(2f);
+            _animator.SetBool(IsFailing, true);
+            _boxCollider2D.enabled = false;
+            yield return new WaitForSeconds(5f);
+            _animator.SetBool(IsFailing, false);
+            _boxCollider2D.enabled = true;
+        }
     }
 }
  

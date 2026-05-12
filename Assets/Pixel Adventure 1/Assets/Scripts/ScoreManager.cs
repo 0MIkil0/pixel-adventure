@@ -1,25 +1,32 @@
-using UnityEngine;
+using Pixel_Adventure_1.Assets.Scripts.Saves;
 using TMPro;
+using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+namespace Pixel_Adventure_1.Assets.Scripts
 {
-   public int playerScore;
-   [SerializeField] private TMP_Text scoreText;
-   
-   void Update()
+   public class ScoreManager : MonoBehaviour
    {
-      if (scoreText != null)
+      public int PlayerScore;
+      private TMP_Text _scoreText;
+
+      void Update()
       {
-         scoreText.text = $"Очки: {playerScore}";
+         if (_scoreText != null)
+         {
+            _scoreText.text = $"Очки: {PlayerScore}";
+         }
       }
-   }
-   public void AddScore()
-   {
-      playerScore++;
-      Debug.Log(playerScore);
-   }
-   private void OnTriggerEnter2D(Collider2D collision)
-   {
-      PlayerPrefs.SetInt(SaveKeys.PlayerScore, playerScore);
+
+      private void OnTriggerEnter2D(Collider2D collision)
+      {
+         PlayerPrefs.SetInt(CheckpointSaveKeys.PlayerScore, PlayerScore);
+      }
+
+      public void AddScore()
+      {
+         PlayerScore++;
+         Debug.Log(PlayerScore);
+      }
+
    }
 }
