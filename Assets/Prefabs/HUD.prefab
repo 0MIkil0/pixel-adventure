@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f5f6bbec5d94e5783cef75ab50b308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pixel_Adventure_1.Assets.Scripts.HealthBar
-  healthBarImage: {fileID: 4954492263814523891}
+  HealthBarImage: {fileID: 4954492263814523891}
 --- !u!1 &3706344062759452326
 GameObject:
   m_ObjectHideFlags: 0

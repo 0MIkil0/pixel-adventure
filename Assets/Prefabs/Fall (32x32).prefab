@@ -208,9 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2da4b99a2c72459097d4b0932a97a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pixel_Adventure_1.Assets.Scripts.PlayerHealth
-  maxHealth: 100
-  currentHealth: 100
-  fullHelthBar: {fileID: 0}
+  MaxHealth: 100
+  CurrentHealth: 100
+  FullHealthBar: {fileID: 0}
 --- !u!114 &9037619470497928403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,12 +223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a06eeb658c04226b1eba8ad60135db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement2D
-  groundCheckRadius: 0.08
-  groundCheckPoint: {fileID: 1208180517111665533}
-  groundLayer:
+  _groundCheckRadius: 0.08
+  _groundCheckPoint: {fileID: 1208180517111665533}
+  _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  doubleJumpParticles: {fileID: 0}
+  DoubleJumpParticles: {fileID: 0}
 --- !u!114 &5880996386547628356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0afe1f8c56444de6beb21c8fbc3a993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pixel_Adventure_1.Assets.Scripts.Dash
-  dashForce: 6
-  dashParticles: {fileID: 4225646786051445140}
+  _dashForce: 6
+  DashParticles: {fileID: 4225646786051445140}
   DashImage: {fileID: 0}
 --- !u!95 &2048907280920602947
 Animator:
@@ -5140,7 +5140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5a59bf12ceb455a988ceef58e770fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  bulletPrefab: {fileID: 0}
-  bulletSpeed: 10
-  reloadImage: {fileID: 0}
-  shootDirection: {x: 0, y: 0}
+  BulletPrefab: {fileID: 0}
+  BulletSpeed: 10
+  ReloadImage: {fileID: 0}
+  ShootDirection: {x: 0, y: 0}

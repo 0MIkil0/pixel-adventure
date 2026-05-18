@@ -1,4 +1,5 @@
 using Pixel_Adventure_1.Assets.Scripts.Levels.Level1;
+using Pixel_Adventure_1.Assets.Scripts.Levels.Levels;
 using Pixel_Adventure_1.Assets.Scripts.Saves;
 using UnityEngine;
 
@@ -8,21 +9,19 @@ namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level2
     {
         //меняем при триггере на сохранении второго уровня
         public int IsOnSecondLevel;
-        private Level2UI _level2UI;
-        private Level2Transition _level2Transition;
-        private Level1Goal _level1Goal;
-
-        private AppleHeal[] _apples;
-
-        //2
+        
+        [SerializeField] private AppleHeal[] _apples;
+        [SerializeField]  private Level1Goal _level1Goal;
+        [SerializeField] private Level2Transition _level2Transition;
+         
+        private LevelsUI _levelsUI;
         private const int SecondLevelTarget = 5;
         private int _collectedAppleCount;
         private int _isFirstLevelCompleted;
 
-        void Start()
+        private void Start()
         {
-            _level2Transition = GetComponent<Level2Transition>();
-            _level2UI = GetComponent<Level2UI>();
+            _levelsUI = GetComponent<LevelsUI>();
 
             int isSecondFloorPref = PlayerPrefs.GetInt(CheckpointSaveKeys.IsSecondLevel);
             IsOnSecondLevel = isSecondFloorPref;
@@ -33,15 +32,14 @@ namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level2
             }
         }
 
-        void Update()
+        private void Update()
         {
             if (_isFirstLevelCompleted == 1 && IsOnSecondLevel == 1)
             {
                 _level1Goal.enabled = false;
                 string message = $"Теперь съешь {SecondLevelTarget - _collectedAppleCount} яблок";
-                _level2UI.UpdateText(message, Color.cornflowerBlue, 18);
+                _levelsUI.UpdateText(message, Color.cornflowerBlue, 18);
             }
-
             if (_collectedAppleCount == SecondLevelTarget)
             {
                 _level2Transition.StartTimerCoroutine();
@@ -55,7 +53,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level2
             PlayerPrefs.SetInt(CheckpointSaveKeys.IsSecondLevel, 1);
         }
 
-        void AddScore()
+        private void AddScore()
         {
             _collectedAppleCount++;
 

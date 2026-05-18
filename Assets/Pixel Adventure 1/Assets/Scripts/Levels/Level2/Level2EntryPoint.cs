@@ -5,12 +5,12 @@ namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level2
 {
     public class Level2EntryPoint : MonoBehaviour
     {
-        private Level2Goal _level2Goal;
-        private Level2ManagerCollision _level2ManagerCollision;
+       [SerializeField] private Level2Goal _level2Goal;
+       [SerializeField] private Level2ManagerCollision _level2ManagerCollision;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player") && _level2Goal != null)
+            if (collision.gameObject.CompareTag("Player"))
             {
                 _level2Goal.ChangeSecondLevel();
                 _level2ManagerCollision.ColliderTrue();

@@ -6,6 +6,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
     {
         public float EnemyBulletDamage = 15f;
         public Vector2 DirectionBullet;
+        
         private Rigidbody2D _rb;
 
         private void Awake()
@@ -31,4 +32,3 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
         }
     }
 }
-

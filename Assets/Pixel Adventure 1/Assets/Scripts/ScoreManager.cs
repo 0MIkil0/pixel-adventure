@@ -7,9 +7,10 @@ namespace Pixel_Adventure_1.Assets.Scripts
    public class ScoreManager : MonoBehaviour
    {
       public int PlayerScore;
+
       private TMP_Text _scoreText;
 
-      void Update()
+      private void Update()
       {
          if (_scoreText != null)
          {

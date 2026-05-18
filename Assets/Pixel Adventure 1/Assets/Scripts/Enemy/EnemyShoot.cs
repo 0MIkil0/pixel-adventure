@@ -10,8 +10,9 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
         public LayerMask PlayerLayer;
         public Transform BulletSpawn;
         private Rigidbody2D _rb;
+        private bool _canShoot = true;
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (transform.localScale.x > 0)
             {
@@ -24,9 +25,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
 
         }
 
-        private bool _canShoot = true;
-
-        void Raycast(Vector2 direction, float rayLength)
+        private void Raycast(Vector2 direction, float rayLength)
         {
             Vector2 rayOrigin = new Vector2(transform.position.x, transform.position.y);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, direction, rayLength, PlayerLayer);
@@ -44,7 +43,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             }
         }
 
-        IEnumerator ShotCoroutine(Vector2 x)
+        private IEnumerator ShotCoroutine(Vector2 x)
         {
             _canShoot = false;
             GameObject enemyBullet = Instantiate(BulletPrefab, BulletSpawn.position, Quaternion.identity);

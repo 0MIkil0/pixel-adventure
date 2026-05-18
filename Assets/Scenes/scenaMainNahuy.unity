@@ -357,11 +357,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024295376628943770, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: shot
+      propertyPath: PlayerShot
       value: 
       objectReference: {fileID: 1565790696}
     - target: {fileID: 1024295376628943770, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: bullet
+      propertyPath: PlayerBullet
       value: 
       objectReference: {fileID: 1345979506}
     - target: {fileID: 2660767400593759668, guid: 2b769735bc6234c0384d609f22137786, type: 3}
@@ -425,7 +425,7 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 9017315178076271493, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: enemyLayer.m_Bits
+      propertyPath: _enemyLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2804,11 +2804,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024295376628943770, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: shot
+      propertyPath: PlayerShot
       value: 
       objectReference: {fileID: 1565790696}
     - target: {fileID: 1024295376628943770, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: bullet
+      propertyPath: PlayerBullet
       value: 
       objectReference: {fileID: 1345979506}
     - target: {fileID: 2660767400593759668, guid: 2b769735bc6234c0384d609f22137786, type: 3}
@@ -2872,7 +2872,7 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 9017315178076271493, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: enemyLayer.m_Bits
+      propertyPath: _enemyLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13046,12 +13046,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a11c6cbf73dc4db8901d5dba040bc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShotEnemy
-  bulletPrefab: {fileID: 1105730300762706719}
-  bulletSpeed: 5
-  playerLayer:
+  BulletPrefab: {fileID: 1105730300762706719}
+  BulletSpeed: 5
+  PlayerLayer:
     serializedVersion: 2
     m_Bits: 512
-  bulletSpawn: {fileID: 1063832210}
+  BulletSpawn: {fileID: 1063832210}
 --- !u!4 &1063832210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2660767400593759668, guid: 2b769735bc6234c0384d609f22137786, type: 3}
@@ -14608,12 +14608,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a11c6cbf73dc4db8901d5dba040bc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShotEnemy
-  bulletPrefab: {fileID: 1105730300762706719}
-  bulletSpeed: 5
-  playerLayer:
+  BulletPrefab: {fileID: 1105730300762706719}
+  BulletSpeed: 5
+  PlayerLayer:
     serializedVersion: 2
     m_Bits: 512
-  bulletSpawn: {fileID: 1260186510}
+  BulletSpawn: {fileID: 1260186510}
 --- !u!4 &1260186510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2660767400593759668, guid: 2b769735bc6234c0384d609f22137786, type: 3}
@@ -15120,11 +15120,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024295376628943770, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: shot
+      propertyPath: PlayerShot
       value: 
       objectReference: {fileID: 1565790696}
     - target: {fileID: 1024295376628943770, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: bullet
+      propertyPath: PlayerBullet
       value: 
       objectReference: {fileID: 1345979506}
     - target: {fileID: 2660767400593759668, guid: 2b769735bc6234c0384d609f22137786, type: 3}
@@ -15188,7 +15188,7 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 9017315178076271493, guid: 2b769735bc6234c0384d609f22137786, type: 3}
-      propertyPath: enemyLayer.m_Bits
+      propertyPath: _enemyLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18514,12 +18514,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a11c6cbf73dc4db8901d5dba040bc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShotEnemy
-  bulletPrefab: {fileID: 1105730300762706719}
-  bulletSpeed: 5
-  playerLayer:
+  BulletPrefab: {fileID: 1105730300762706719}
+  BulletSpeed: 5
+  PlayerLayer:
     serializedVersion: 2
     m_Bits: 512
-  bulletSpawn: {fileID: 1571312622}
+  BulletSpawn: {fileID: 1571312622}
 --- !u!4 &1571312622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2660767400593759668, guid: 2b769735bc6234c0384d609f22137786, type: 3}
@@ -25194,11 +25194,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2911618465217827769, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
-      propertyPath: reloadImage
+      propertyPath: ReloadImage
       value: 
       objectReference: {fileID: 627826557}
     - target: {fileID: 2911618465217827769, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
-      propertyPath: bulletPrefab
+      propertyPath: BulletPrefab
       value: 
       objectReference: {fileID: 6281288729763120703}
     - target: {fileID: 5880996386547628356, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
@@ -25250,7 +25250,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8356743801946122030, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
-      propertyPath: fullHelthBar
+      propertyPath: FullHealthBar
       value: 
       objectReference: {fileID: 1504411145}
     m_RemovedComponents: []
@@ -25504,15 +25504,15 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6872708882906704585, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
-      propertyPath: bulletPrefab
+      propertyPath: BulletPrefab
       value: 
       objectReference: {fileID: 1105730300762706719}
     - target: {fileID: 6901447044825837979, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
-      propertyPath: shot
+      propertyPath: PlayerShot
       value: 
       objectReference: {fileID: 1565790696}
     - target: {fileID: 6901447044825837979, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
-      propertyPath: bullet
+      propertyPath: PlayerBullet
       value: 
       objectReference: {fileID: 1345979506}
     - target: {fileID: 7451796133636562854, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}

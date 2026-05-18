@@ -11,6 +11,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
         public PlayerHealthBar FullHealthBar;
         public float MaxHealth = 100f;
         public float CurrentHealth = 100f;
+        
         private static readonly int IsGetHit = Animator.StringToHash("isGetHit");
         private static readonly int IsDeath = Animator.StringToHash("isDeath");
         private Animator _animator;

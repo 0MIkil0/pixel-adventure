@@ -11,10 +11,11 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
         public float BulletSpeed = 10;
         public Image ReloadImage;
         public Vector2 ShootDirection; //используется в EnemyHeal
+
         private Rigidbody2D _rb;
         private bool _isShot;
 
-        void Update()
+        private void Update()
         {
             if (Input.GetKeyDown(KeyCode.F) && transform.localScale.x > 0)
             {
@@ -28,7 +29,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             }
         }
 
-        IEnumerator ShootCoroutine(Vector2 direction)
+        private IEnumerator ShootCoroutine(Vector2 direction)
         {
             if (_isShot)
             {
@@ -46,7 +47,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             _isShot = false;
         }
 
-        void Shoot(Vector2 transition)
+        private void Shoot(Vector2 transition)
         {
             GameObject bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
             _rb = bullet.GetComponent<Rigidbody2D>();
@@ -57,7 +58,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             StartCoroutine(ReloadShootCoroutine(1));
         }
 
-        IEnumerator ReloadShootCoroutine(float duration)
+        private IEnumerator ReloadShootCoroutine(float duration)
         {
             float time = 0;
             while (ReloadImage.fillAmount < 1)

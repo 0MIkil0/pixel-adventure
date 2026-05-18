@@ -1,13 +1,13 @@
 using TMPro;
 using UnityEngine;
 
-namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level1
+namespace Pixel_Adventure_1.Assets.Scripts.Levels.Levels
 {
-    public class Level1UI : MonoBehaviour
+    public class LevelsUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text _tmpText;
-
-        void Awake()
+        
+        private void Awake()
         {
             //базовые настройки текст
             _tmpText.fontMaterial.EnableKeyword("OUTLINE_ON");
@@ -15,7 +15,6 @@ namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level1
             _tmpText.fontSize = 18;
             _tmpText.outlineColor = Color.black;
         }
-
         public void UpdateText(string message, Color color, int fontSize)
         {
             _tmpText.text = message;

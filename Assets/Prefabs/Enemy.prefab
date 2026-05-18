@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b131e66d3aca8427c9a7068366d2696a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHeal
-  bullet: {fileID: 0}
-  shot: {fileID: 0}
+  PlayerBullet: {fileID: 0}
+  PlayerShot: {fileID: 0}
 --- !u!95 &7104016820841816934
 Animator:
   serializedVersion: 7
@@ -209,16 +209,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc99a3376d2ff4389bfbc9571bdffe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pixel_Adventure_1.Assets.Scripts.EnemyAi
-  groundLayer:
+  _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  wallLayer:
+  _wallLayer:
     serializedVersion: 2
     m_Bits: 128
-  enemyLayer:
+  _enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
-  groundCheckPoint: {fileID: 7451796133636562854}
+  _groundCheckPoint: {fileID: 7451796133636562854}
 --- !u!114 &6872708882906704585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a11c6cbf73dc4db8901d5dba040bc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShotEnemy
-  bulletPrefab: {fileID: 0}
-  bulletSpeed: 5
-  playerLayer:
+  BulletPrefab: {fileID: 0}
+  BulletSpeed: 5
+  PlayerLayer:
     serializedVersion: 2
     m_Bits: 512
-  bulletSpawn: {fileID: 7451796133636562854}
+  BulletSpawn: {fileID: 7451796133636562854}

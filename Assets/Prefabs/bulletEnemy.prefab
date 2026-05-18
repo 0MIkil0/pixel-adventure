@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7b5462f3cc446bbbd90a695ac46139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
-  enemyBulletDamage: 15
-  directionBullet: {x: 0, y: 0}
+  EnemyBulletDamage: 15
+  DirectionBullet: {x: 0, y: 0}
 --- !u!1 &7521974638118974197
 GameObject:
   m_ObjectHideFlags: 0

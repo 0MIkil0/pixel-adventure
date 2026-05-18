@@ -9,6 +9,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
         [SerializeField] private float _groundCheckRadius = 0.01f;
         [SerializeField] private Transform _groundCheckPoint;
         [SerializeField] private LayerMask _groundLayer;
+
         private static readonly int IsRunning = Animator.StringToHash("isRunning");
         private static readonly int IsJumping = Animator.StringToHash("isJumping");
         private static readonly float Speed = 2;
@@ -22,7 +23,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
         private bool _isRight;
         private int _jumpCount;
 
-        void Start()
+        private void Start()
         {
             _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
@@ -30,7 +31,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             _animator.SetBool(IsJumping, false);
         }
 
-        void Update()
+        private void Update()
         {
             //получение направления от -1 до 1 
             float moveX = Input.GetAxisRaw("Horizontal");
@@ -74,7 +75,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             }
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             _isGrounded = Physics2D.OverlapCircle(_groundCheckPoint.position, _groundCheckRadius, _groundLayer);
 
@@ -88,7 +89,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
 
         }
 
-        void OnDrawGizmos()
+        private void OnDrawGizmos()
         {
             if (_groundCheckPoint != null)
             {
@@ -97,7 +98,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             }
         }
 
-        void ApplyMovement()
+        private void ApplyMovement()
         {
             if (_playerDash.IsDashing == true)
             {

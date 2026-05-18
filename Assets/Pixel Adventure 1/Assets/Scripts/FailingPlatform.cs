@@ -9,7 +9,7 @@ namespace Pixel_Adventure_1.Assets.Scripts
         private Animator _animator;
         private BoxCollider2D _boxCollider2D;
 
-        void Start()
+       private void Start()
         {
             _animator = GetComponent<Animator>();
             _boxCollider2D = GetComponent<BoxCollider2D>();

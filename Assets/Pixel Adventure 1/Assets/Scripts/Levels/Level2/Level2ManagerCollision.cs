@@ -1,21 +1,17 @@
 using Pixel_Adventure_1.Assets.Scripts.Levels.Level1;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level2
 {
     public class Level2ManagerCollision : MonoBehaviour
     {
-        [FormerlySerializedAs("leftCollision")]
         public GameObject LeftCollision;
-
-        [FormerlySerializedAs("rightCollision")]
         public GameObject RightCollision;
 
         private BoxCollider2D _rightCollider;
         private BoxCollider2D _leftCollider;
 
-        void Start()
+        private void Start()
         {
             _rightCollider = RightCollision.GetComponent<BoxCollider2D>();
             _leftCollider = LeftCollision.GetComponent<BoxCollider2D>();
@@ -40,7 +36,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Levels.Level2
             _leftCollider.enabled = true;
         }
 
-        void OpenSecondLevel()
+        private void OpenSecondLevel()
         {
             _rightCollider.enabled = false;
             _leftCollider.enabled = false;

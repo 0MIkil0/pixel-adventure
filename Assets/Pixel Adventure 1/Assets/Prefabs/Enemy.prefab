@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b131e66d3aca8427c9a7068366d2696a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHeal
-  bullet: {fileID: 0}
+  PlayerBullet: {fileID: 0}
 --- !u!95 &8991855461722183835
 Animator:
   serializedVersion: 7
@@ -207,10 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc99a3376d2ff4389bfbc9571bdffe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pixel_Adventure_1.Assets.Scripts.EnemyAi
-  groundLayer:
+  _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  wallLayer:
+  _wallLayer:
     serializedVersion: 2
     m_Bits: 128
-  groundCheckPoint: {fileID: 2660767400593759668}
+  _groundCheckPoint: {fileID: 2660767400593759668}

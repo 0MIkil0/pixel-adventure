@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f467df7825a8e4e6880ce24c44eead1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenCollisionOnSecondLevel
-  leftCollision: {fileID: 0}
-  rightCollision: {fileID: 0}
+  LeftCollision: {fileID: 0}
+  RightCollision: {fileID: 0}
 --- !u!114 &126896850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d07b56798f34470a9db9a860b37164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pixel_Adventure_1.Assets.Scripts.Level1Goal
-  isFirstLevelCompleted: 0
+  IsFirstLevelCompleted: 0
 --- !u!60 &171500865 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 7510562405657206116, guid: d08dbf0b96c55443aa8717c666283601, type: 3}
@@ -1993,7 +1993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89639303875754177bf60f894d2b3598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
-  playerScore: 0
+  PlayerScore: 0
 --- !u!1 &714716437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d07b56798f34470a9db9a860b37164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pixel_Adventure_1.Assets.Scripts.LevelTarget1
-  isFirstLevelCompleted: 0
+  IsFirstLevelCompleted: 0
 --- !u!114 &1302706517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3179,7 +3179,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  isOnSecondLevel: 0
+  IsOnSecondLevel: 0
 --- !u!4 &1338329320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4541828749477408699, guid: b71df58594f2a4854ad41768217897f2, type: 3}
@@ -3246,19 +3246,19 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6872708882906704585, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
-      propertyPath: bulletPrefab
+      propertyPath: BulletPrefab
       value: 
       objectReference: {fileID: 4494974416552749219, guid: 9fdc6e3c92fda4d9dafa6748d629aaa6, type: 3}
     - target: {fileID: 6901447044825837979, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
-      propertyPath: shot
+      propertyPath: PlayerShot
       value: 
       objectReference: {fileID: 548610079}
     - target: {fileID: 6901447044825837979, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
-      propertyPath: bullet
+      propertyPath: PlayerBullet
       value: 
       objectReference: {fileID: 1590194815119703729, guid: b71df58594f2a4854ad41768217897f2, type: 3}
     - target: {fileID: 6901447044825837979, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
-      propertyPath: playerShot
+      propertyPath: PlayerShot
       value: 
       objectReference: {fileID: 548610079}
     - target: {fileID: 7451796133636562854, guid: e379e37c31cb048cb9deb8af37a67608, type: 3}
@@ -3521,11 +3521,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2911618465217827769, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
-      propertyPath: reloadImage
+      propertyPath: ReloadImage
       value: 
       objectReference: {fileID: 1394821466}
     - target: {fileID: 2911618465217827769, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
-      propertyPath: bulletPrefab
+      propertyPath: BulletPrefab
       value: 
       objectReference: {fileID: 1194153175820974674, guid: b71df58594f2a4854ad41768217897f2, type: 3}
     - target: {fileID: 5880996386547628356, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
@@ -3577,7 +3577,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8356743801946122030, guid: b4e59ad0d7bc143e0a17f10bc41ecea6, type: 3}
-      propertyPath: fullHelthBar
+      propertyPath: FullHealthBar
       value: 
       objectReference: {fileID: 588755928}
     m_RemovedComponents: []
@@ -3608,8 +3608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce3190f817d54fa8925241c86aff292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugKeys
-  leftCollision: {fileID: 0}
-  rightCollision: {fileID: 0}
+  LeftCollision: {fileID: 0}
+  RightCollision: {fileID: 0}
 --- !u!114 &1997468610
 MonoBehaviour:
   m_ObjectHideFlags: 0

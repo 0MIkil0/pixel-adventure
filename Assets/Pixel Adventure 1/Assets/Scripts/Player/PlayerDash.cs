@@ -9,8 +9,9 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
         public ParticleSystem DashParticles;
         public Image DashImage;
         public bool IsDashing { get; private set; }
-        
+
         [SerializeField] private float _dashForce = 6f;
+
         private Rigidbody2D _rb;
         private float _originalGravity;
 
@@ -20,7 +21,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Player
             _originalGravity = _rb.gravityScale;
         }
 
-        void Update()
+        private void Update()
         {
 
             //dash

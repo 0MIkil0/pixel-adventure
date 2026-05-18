@@ -9,6 +9,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
         [SerializeField] private LayerMask _wallLayer;
         [SerializeField] private LayerMask _enemyLayer;
         [SerializeField] private Transform _groundCheckPoint;
+
         private Rigidbody2D _rb;
         private Vector2 _movement = new Vector2(1, 0);
         private Animator _animator;
@@ -20,7 +21,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
         private bool _isJumping = false;
         private bool _isDashing = false;
 
-        void Start()
+        private void Start()
         {
             _transform = GetComponent<Transform>();
             _animator = GetComponent<Animator>();
@@ -28,7 +29,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             _rb.gravityScale = NormalGravity;
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (!_isDashing)
             {
@@ -47,7 +48,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             }
         }
 
-        void RaycastDown(float distanceRay, float rayLength)
+        private void RaycastDown(float distanceRay, float rayLength)
         {
             Vector2 rayDownOrigin =
                 new Vector2(_groundCheckPoint.position.x + distanceRay, _groundCheckPoint.position.y);
@@ -58,7 +59,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             }
         }
 
-        void RaycastWall(Vector2 direction, float rayLength)
+        private void RaycastWall(Vector2 direction, float rayLength)
         {
             Vector2 rayWallOrigin = new Vector2(_groundCheckPoint.position.x, _groundCheckPoint.position.y);
             Vector2 rayEnemyOrigin = new Vector2(_groundCheckPoint.position.x + 0.1f, _groundCheckPoint.position.y);
@@ -90,14 +91,14 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
             }
         }
 
-        void Jump()
+        private void Jump()
         {
             _rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
             _isJumping = true;
             Invoke(nameof(IsJumpingFalse), 1f);
         }
 
-        void DashCallInvoke()
+        private void DashCallInvoke()
         {
             if (_isRight)
             {

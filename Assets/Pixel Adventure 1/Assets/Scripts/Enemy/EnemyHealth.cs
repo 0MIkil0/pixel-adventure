@@ -9,6 +9,7 @@ namespace Pixel_Adventure_1.Assets.Scripts.Enemy
     {
         public PlayerBullet PlayerBullet;
         public PlayerShot PlayerShot;
+        
         private Animator _animator;
         private Rigidbody2D _rb;
         private EnemyAi _enemyAi;
